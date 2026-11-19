@@ -28,6 +28,14 @@ app.use((req, res, next) => {
 });
 app.use(express.static(ROOT));
 
+// Manejar OPTIONS preflight explícitamente
+app.use((req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 const sessions = new Map();
 
 function auth(req, res, next) {
