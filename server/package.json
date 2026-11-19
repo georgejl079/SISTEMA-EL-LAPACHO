@@ -1,0 +1,15 @@
+{
+  "name": "ladrillera-pro-server",
+  "version": "2.0.0",
+  "description": "Servidor local multi-dispositivo para fábrica de ladrillos",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "uuid": "^11.0.5"
+  }
+}

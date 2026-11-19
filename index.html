@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1d2429" />
+  <title>Cerámica EL LAPACHO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- LOGIN -->
+  <section id="loginScreen" class="login-screen">
+    <div class="login-bg" aria-hidden="true"></div>
+    <form id="loginForm" class="login-card">
+      <div class="login-brand">
+        <div class="brand-mark lg"></div>
+        <h1>Cerámica EL LAPACHO</h1>
+        <p>Sistema operativo de fábrica · acceso por rol</p>
+      </div>
+      <div class="field">
+        <label for="loginUser">Usuario</label>
+        <input id="loginUser" autocomplete="username" required placeholder="gerente, ventas, almacen…" />
+      </div>
+      <div class="field">
+        <label for="loginPin">PIN</label>
+        <input id="loginPin" type="password" inputmode="numeric" autocomplete="current-password" required placeholder="••••" maxlength="8" />
+      </div>
+      <button class="btn primary block" type="submit">Ingresar</button>
+      <p class="login-hint" id="loginError" hidden></p>
+      <div class="login-users">
+        <p>Toque un rol para entrar · PIN <strong>1234</strong></p>
+        <div class="chip-row">
+          <button type="button" class="chip" data-u="gerente">Gerente</button>
+          <button type="button" class="chip" data-u="ventas">Ventas</button>
+          <button type="button" class="chip" data-u="almacen">Almacén</button>
+          <button type="button" class="chip" data-u="produccion">Producción</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- APP -->
+  <div class="app" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <p class="brand-name">Cerámica EL LAPACHO</p>
+          <p class="brand-sub" id="roleLabel">—</p>
+        </div>
+      </div>
+
+      <div class="user-card" id="userCard">
+        <div class="avatar" id="userAvatar">EL</div>
+        <div>
+          <strong id="userName">—</strong>
+          <p class="muted" id="userHandle">—</p>
+        </div>
+      </div>
+
+      <nav class="nav" id="mainNav"></nav>
+
+      <div class="sidebar-foot">
+        <p id="clockNow"></p>
+        <button class="btn ghost block" id="btnLogout" type="button">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Menú">☰</button>
+        <div class="topbar-text">
+          <h1 id="viewTitle">Panel</h1>
+          <p class="muted" id="viewSubtitle"></p>
+        </div>
+        <div class="topbar-actions">
+          <span class="live-pill" id="livePill">En línea</span>
+        </div>
+      </header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <dialog class="modal" id="modal">
+    <div class="modal-card">
+      <header>
+        <h3 id="modalTitle">Detalle</h3>
+        <button type="button" class="icon-btn" id="modalClose">✕</button>
+      </header>
+      <div class="modal-body" id="modalBody"></div>
+      <footer class="modal-foot" id="modalFoot"></footer>
+    </div>
+  </dialog>
+
+  <div class="toast-wrap" id="toasts"></div>
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+
+  <script src="js/api.js?v=6"></script>
+  <script src="js/app.js?v=6"></script>
+</body>
+</html>
